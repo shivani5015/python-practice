@@ -1,0 +1,508 @@
+# Question 1
+print('--- Question 1: Voting Eligibility ---')
+age_str = input('Enter your age: ')
+id_card = input('Do you possess a valid ID card (Y/N)?: ').upper()
+age = int(age_str)
+
+if age >= 18 and id_card == 'Y':
+    print('Eligible to Vote')
+elif age >= 18 and id_card == 'N':
+    print('Get your ID first')
+else:
+    print('Not eligible to vote')
+print('-------------------------------------')
+
+# Question 2
+print('--- Question 2: Grade Calculation ---')
+m1 = float(input('Enter marks for subject 1: '))
+m2 = float(input('Enter marks for subject 2: '))
+m3 = float(input('Enter marks for subject 3: '))
+average = (m1 + m2 + m3) / 3
+print('Average Marks:', average)
+
+if average > 90:
+    grade = 'Excellent'
+elif average >= 75:
+    grade = 'Good'
+elif average >= 60:
+    grade = 'Average'
+else:
+    grade = 'Fail'
+print('Grade:', grade)
+print('-------------------------------------')
+
+# Question 3
+print('--- Question 3: Temperature Category ---')
+temp_c = float(input('Enter temperature in Celsius: '))
+print('Entered Temperature:', temp_c, 'degrees Celsius')
+
+if temp_c > 38:
+    print('Result: High Fever')
+elif temp_c >= 36:
+    print('Result: Normal')
+else:
+    print('Result: Below Normal')
+print('-------------------------------------')
+
+# Question 4
+print('--- Question 4: Bonus Calculation ---')
+salary = float(input('Enter annual salary: '))
+years = int(input('Enter years of service: '))
+
+if years > 10:
+    bonus_rate = 0.10
+elif years >= 6:
+    bonus_rate = 0.08
+else:
+    bonus_rate = 0.05
+
+bonus = salary * bonus_rate
+final_salary = salary + bonus
+print('Final Salary after Bonus:', final_salary)
+print('-------------------------------------')
+
+# Question 5
+print('--- Question 5: Number Check (Positive/Negative/Zero & Even/Odd) ---')
+num5 = int(input('Enter a number: '))
+
+if num5 > 0:
+    print('The number is Positive')
+    if num5 % 2 == 0:
+        print('The number is Even')
+    else:
+        print('The number is Odd')
+elif num5 < 0:
+    print('The number is Negative')
+else:
+    print('The number is Zero')
+print('-------------------------------------')
+
+# Question 6
+print('--- Question 6: Leap Year Check (Nested If-Else) ---')
+year = int(input('Enter a year: '))
+
+if year % 4 == 0:
+    if year % 100 == 0:
+        if year % 400 == 0:
+            print(year, 'is a Leap Year')
+        else:
+            print(year, 'is NOT a Leap Year')
+    else:
+        print(year, 'is a Leap Year')
+else:
+    print(year, 'is NOT a Leap Year')
+print('-------------------------------------')
+
+# Question 7
+print('--- Question 7: Triangle Validity Check ---')
+s1 = float(input('Enter side 1: '))
+s2 = float(input('Enter side 2: '))
+s3 = float(input('Enter side 3: '))
+
+if s1 + s2 > s3 and s1 + s3 > s2 and s2 + s3 > s1:
+    print('The triangle is Valid')
+else:
+    print('The triangle is NOT valid')
+print('-------------------------------------')
+
+# Question 8
+print('--- Question 8: Electricity Bill Calculator ---')
+units = int(input('Enter units consumed: '))
+
+if units <= 100:
+    bill = units * 5
+elif units <= 300:
+    # 100 units at 5/unit + remaining units at 7/unit
+    bill = (100 * 5) + ((units - 100) * 7)
+else:
+    # 100 units at 5/unit + 200 units at 7/unit + remaining units at 10/unit
+    bill = (100 * 5) + (200 * 7) + ((units - 300) * 10)
+
+print('Total Payable Bill:', bill, 'Rs')
+print('-------------------------------------')
+
+# Question 9
+print('--- Question 9: Simple Calculator ---')
+numA = float(input('Enter first number: '))
+numB = float(input('Enter second number: '))
+op = input('Enter operator (+, -, *, /): ')
+
+if op == '+':
+    result9 = numA + numB
+    print('Result:', result9)
+elif op == '-':
+    result9 = numA - numB
+    print('Result:', result9)
+elif op == '*':
+    result9 = numA * numB
+    print('Result:', result9)
+elif op == '/':
+    if numB != 0:
+        result9 = numA / numB
+        print('Result:', result9)
+    else:
+        print('Error: Division by zero is not allowed.')
+else:
+    print('Invalid operator.')
+print('-------------------------------------')
+
+# Question 10
+print('--- Question 10: Student Attendance Check ---')
+attend_perc = float(input('Enter attendance percentage: '))
+print('Exact Percentage:', attend_perc, '%')
+
+if attend_perc < 75:
+    decision = 'Not eligible for exam.'
+elif attend_perc <= 85:
+    decision = 'Eligible but needs improvement.'
+else:
+    decision = 'Excellent attendance.'
+print('Decision:', decision)
+print('-------------------------------------')
+
+# Question 11
+print('--- Question 11: Day Name from Number ---')
+day_num = int(input('Enter day number (1-7): '))
+
+if day_num == 1:
+    day_name = 'Monday'
+elif day_num == 2:
+    day_name = 'Tuesday'
+elif day_num == 3:
+    day_name = 'Wednesday'
+elif day_num == 4:
+    day_name = 'Thursday'
+elif day_num == 5:
+    day_name = 'Friday'
+elif day_num == 6:
+    day_name = 'Saturday'
+elif day_num == 7:
+    day_name = 'Sunday'
+else:
+    day_name = 'Invalid day number.'
+
+print(day_name)
+print('-------------------------------------')
+
+# Question 12
+print('--- Question 12: Income Tax Calculation ---')
+income = float(input('Enter annual income (in Rupees): '))
+tax = 0.0
+
+if income <= 250000:
+    tax_rate = 0.0
+    tax = 0
+elif income <= 500000:
+    tax_rate = 0.05
+    tax = (income - 250000) * tax_rate
+elif income <= 1000000:
+    tax_rate = 0.20
+    # Tax on first 2.5 lakh (0) + Tax on next 2.5 lakh (5%) + Tax on remaining (20%)
+    tax = (250000 * 0.05) + ((income - 500000) * tax_rate)
+else:
+    tax_rate = 0.30
+    # Tax on first 2.5 lakh (0) + Tax on next 2.5 lakh (5%) + Tax on next 5 lakh (20%) + Tax on remaining (30%)
+    tax = (250000 * 0.05) + (500000 * 0.20) + ((income - 1000000) * tax_rate)
+
+final_payable = income - tax
+print('Calculated Tax:', tax, 'Rs')
+print('Final Payable Amount:', final_payable, 'Rs')
+print('-------------------------------------')
+
+# Question 13
+print('--- Question 13: Pass/Fail and Distinction ---')
+sub1 = int(input('Enter marks for subject 1: '))
+sub2 = int(input('Enter marks for subject 2: '))
+sub3 = int(input('Enter marks for subject 3: '))
+
+print('Subject 1 Mark:', sub1)
+print('Subject 2 Mark:', sub2)
+print('Subject 3 Mark:', sub3)
+
+if sub1 >= 80 and sub2 >= 80 and sub3 >= 80:
+    print('Result: Distinction')
+elif sub1 >= 35 and sub2 >= 35 and sub3 >= 35:
+    print('Result: Passed')
+else:
+    print('Result: Failed')
+print('-------------------------------------')
+
+# Question 14
+print('--- Question 14: Menu-Driven Food Program ---')
+print('Menu:')
+print('1. Pizza - Rs 200')
+print('2. Burger - Rs 150')
+print('3. Sandwich - Rs 100')
+choice = input('Select an option (1, 2, or 3): ')
+
+if choice == '1':
+    cost = 200
+    item = 'Pizza'
+    print('Total cost for', item, 'is Rs', cost)
+    print('Thank you for your order!')
+elif choice == '2':
+    cost = 150
+    item = 'Burger'
+    print('Total cost for', item, 'is Rs', cost)
+    print('Thank you for your order!')
+elif choice == '3':
+    cost = 100
+    item = 'Sandwich'
+    print('Total cost for', item, 'is Rs', cost)
+    print('Thank you for your order!')
+else:
+    print('Invalid choice. Please select 1, 2, or 3.')
+print('-------------------------------------')
+
+# Question 15
+print('--- Question 15: FizzBuzz ---')
+num15 = int(input('Enter a number: '))
+
+if num15 % 3 == 0 and num15 % 5 == 0:
+    print('FizzBuzz')
+elif num15 % 3 == 0:
+    print('Fizz')
+elif num15 % 5 == 0:
+    print('Buzz')
+else:
+    print(num15)
+print('-------------------------------------')
+
+
+# Question 16
+print('--- Question 16: Type Conversion and Formatting ---')
+name_str = input('Enter your name (string): ')
+age_str = input('Enter your age (string): ')
+height_str = input('Enter your height in meters (string): ')
+
+print('Before Conversion:')
+print('Name Type:', type(name_str))
+print('Age Type:', type(age_str))
+print('Height Type:', type(height_str))
+
+age_int = int(age_str)
+height_float = float(height_str)
+
+print('After Conversion:')
+print('Name Type:', type(name_str))
+print('Age Type:', type(age_int))
+print('Height Type:', type(height_float))
+
+print(name_str, 'is', age_int, 'years old and is', height_float, 'meters tall.')
+print('-------------------------------------')
+
+# Question 17
+print('--- Question 17: String to Float and Integer ---')
+num_str = input("Enter a string number (e.g., '45.78'): ")
+print('Original String:', num_str)
+
+num_float = float(num_str)
+num_int = int(num_float)
+
+print('Converted Float:', num_float, ', Type:', type(num_float))
+print('Converted Integer:', num_int, ', Type:', type(num_int))
+
+print('Difference:')
+print('Float (', num_float, ') keeps the decimal part.')
+print('Integer (', num_int, ') truncates the decimal part.')
+print('-------------------------------------')
+
+# Question 18
+print('--- Question 18: String to Integer Operations ---')
+s1 = input('Enter first number as a string: ')
+s2 = input('Enter second number as a string: ')
+
+print('Before Conversion - s1 Type:', type(s1), 's2 Type:', type(s2))
+
+n1 = int(s1)
+n2 = int(s2)
+
+print('After Conversion - n1 Type:', type(n1), 'n2 Type:', type(n2))
+
+print('Addition:', n1 + n2)
+print('Subtraction:', n1 - n2)
+print('Multiplication:', n1 * n2)
+print('Division:', n1 / n2)
+print('-------------------------------------')
+
+# Question 19
+print('--- Question 19: Integer vs Float Division ---')
+num_x = float(input('Enter first number: '))
+num_y = float(input('Enter second number: '))
+
+float_div = num_x / num_y
+print('Float Division (', num_x, '/', num_y, '):', float_div)
+
+int_div = num_x // num_y
+print('Integer Division (', num_x, '//', num_y, '):', int_div)
+
+print('-------------------------------------')
+
+# Question 20
+print('--- Question 20: String to Integer Sum ---')
+str_a = input('Enter first number as string: ')
+str_b = input('Enter second number as string: ')
+
+int_a = int(str_a)
+int_b = int(str_b)
+
+sum20 = int_a + int_b
+
+print('Original data types: A is', type(str_a), ', B is', type(str_b))
+print('Converted data types: A is', type(int_a), ', B is', type(int_b))
+print('Sum:', sum20)
+print('-------------------------------------')
+
+# Question 21
+print('--- Question 21: Operator Precedence Evaluation (10 + 3 * 2 ** 2 // 3 - 1) ---')
+intermediate1 = 10 + 3 * 4 // 3 - 1
+print('After 2 ** 2:', intermediate1)
+
+intermediate2 = 10 + 12 // 3 - 1
+print('After 3 * 4:', intermediate2)
+
+intermediate3 = 10 + 4 - 1
+print('After 12 // 3:', intermediate3)
+
+intermediate4 = 14 - 1
+print('After 10 + 4:', intermediate4)
+
+final_result21 = 13
+print('After 14 - 1:', final_result21)
+print('-------------------------------------')
+
+# Question 22
+print('--- Question 22: Parentheses Modification (8 + 12 / 4 * 2 - 3 ** 2) ---')
+
+res1 = 8 + (12 / 4) * 2 - 3 ** 2
+print('Expression 1 (8 + (12 / 4) * 2 - 3 ** 2):', res1)
+
+res2 = (8 + 12) / 4 * 2 - 3 ** 2
+print('Expression 2 ((8 + 12) / 4 * 2 - 3 ** 2):', res2)
+
+res3 = 8 + (12 / (4 * 2) - 3) ** 2
+print('Expression 3 (8 + (12 / (4 * 2) - 3) ** 2):', res3)
+
+print('-------------------------------------')
+
+# Question 23
+print('--- Question 23: Associativity of Exponentiation (2 ** 3 ** 2) ---')
+
+stepA = 3 ** 2
+print('Intermediate Step (Right-to-Left): First, 3 ** 2 is calculated:', stepA)
+
+stepB = 2 ** stepA
+print('Intermediate Step (Right-to-Left): Then, 2 ** 9 is calculated:', stepB)
+print('Result:', stepB)
+
+print('-------------------------------------')
+
+# Question 24
+print('--- Question 24: Float to Integer Conversion (Rounding Down) ---')
+float_marks = float(input("Enter student's marks (float): "))
+print('Original Float Value:', float_marks, ', Type:', type(float_marks))
+
+int_marks = int(float_marks)
+print('Converted Integer Value:', int_marks, ', Type:', type(int_marks))
+
+print('-------------------------------------')
+
+# Question 25
+print('--- Question 25: Mixed Type Calculation (a + b + int(c)) ---')
+a = 5
+b = 2.5
+c = '3'
+
+c_int = int(c)
+
+result25 = a + b + c_int
+
+print('Variable a:', a, ', Type:', type(a))
+print('Variable b:', b, ', Type:', type(b))
+print('Variable c (original):', c, ', Type:', type(c))
+print('Variable c (converted):', c_int, ', Type:', type(c_int))
+print('Result of a + b + int(c):', result25)
+print('-------------------------------------')
+
+# Question 26
+print('--- Question 26: Boolean Operator Precedence ---')
+x = True
+y = False
+z = True
+
+result26A = x or y and z
+print('x or y and z:', result26A)
+
+result26B = (x or y) and z
+print('(x or y) and z:', result26B)
+
+print('-------------------------------------')
+
+# Question 27
+print('--- Question 27: Step-by-Step Operator Precedence (10 + 2 * 3 ** 2 // 4 - 5) ---')
+
+val1 = 10 + 2 * 9 // 4 - 5
+print('After **:', val1)
+
+val2 = 10 + 18 // 4 - 5
+print('After *:', val2)
+
+val3 = 10 + 4 - 5
+print('After //:', val3)
+
+val4 = 14 - 5
+print('After +:', val4)
+
+final_result27 = 9
+print('After -:', final_result27)
+print('-------------------------------------')
+
+# Question 28
+print('--- Question 28: Single Input to Different Types ---')
+user_input = input('Enter a single value: ')
+
+try:
+    int_val = int(user_input)
+except ValueError:
+    int_val = 'N/A (Invalid for int)'
+
+float_val = float(user_input)
+
+str_val = str(user_input)
+
+print('As Integer:', int_val, ', Type:', type(int_val) if int_val != 'N/A (Invalid for int)' else type(user_input))
+print('As Float:', float_val, ', Type:', type(float_val))
+print('As String:', str_val, ', Type:', type(str_val))
+print('-------------------------------------')
+
+# Question 29
+print('--- Question 29: Parentheses Effect on Evaluation (100 / 5 * 2 + 10 - 3 ** 2) ---')
+
+original_result = (100 / 5 * 2 + 10 - 3 ** 2)
+print('Original Result:', original_result)
+
+result = 100 / (5 * 2) + 10 - 3 ** 2
+print('Rewrite 1 (100 / (5 * 2) + 10 - 3 ** 2):', result)
+
+result29B = 100 / 5 * 2 + (10 - 3) ** 2
+print('Rewrite 2 (100 / 5 * 2 + (10 - 3) ** 2):', result)
+
+print('-------------------------------------')
+
+# Question 30
+print('--- Question 30: Algebraic Identity Verification ---')
+a30 = float(input('Enter number a: '))
+b30 = float(input('Enter number b: '))
+
+lhs_term1 = (a30 + b30) ** 2
+lhs_term2 = (a30 - b30) ** 2
+lhs = lhs_term1 - lhs_term2
+print('(a + b) ** 2:', lhs_term1)
+print('(a - b) ** 2:', lhs_term2)
+print('LHS ((a + b) ** 2 - (a - b) ** 2):', lhs)
+
+rhs = 4 * a30 * b30
+print('RHS (4 * a * b):', rhs)
+
+verification = (lhs == rhs)
+print('Verification (LHS == RHS):', verification)
