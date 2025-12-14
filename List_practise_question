@@ -65,3 +65,45 @@ for price in price_list:
 
 print(f"The list of prices: {price_list}")
 print(f"The total sum (manual calculation): {total_sum}")
+
+
+#Intermediate List Questions
+
+#Q1 Identify,print larg. value presentin list of numbers without max() function.
+li = [45, 12, 88, 5, 93, 31, 7]
+largest = li[0]
+for i in range(len(li)):
+        if largest<li[i]:
+            largest = li[i]
+print(f"The list: {li}")
+print(f"The largest element: {largest}")
+
+#Q2 Identify,print smallest element present list of num. without min() function.
+li = [23,45,77,12,3,9]
+smallest = li[0]
+for i in range(len(li)):
+  if smallest > li[i]:
+    smallest = li[i]
+print(f"The list: {li}")
+print(f"The smallest element: {smallest}")    
+
+#Q3 Createlist elements ofthe original list inreverse dontuse reverse(),slicing.
+li = [1,2,3,4,5,6]
+left = 0
+right =len(li)-1
+while left< right:
+  li[left],li[right]=li[right],li[left]
+  left+=1
+  right-=1
+print(li)  
+
+#Q4 Sort list numbers in ascending order using the logic Bubble Sort algorithm.
+data = [64, 34, 25, 12, 22, 11, 90]
+n = len(data)
+for i in range(n - 1):
+   
+    for j in range(0, n - i - 1):
+        if data[j] > data[j + 1]:
+            data[j], data[j + 1] = data[j + 1], data[j]
+
+print(f"Sorted list using Bubble Sort: {data}") 
