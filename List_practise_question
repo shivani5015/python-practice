@@ -107,3 +107,80 @@ for i in range(n - 1):
             data[j], data[j + 1] = data[j + 1], data[j]
 
 print(f"Sorted list using Bubble Sort: {data}") 
+
+#Q5 Generate new lifrom an original where allduplicate haveremoved,without set()
+original_list = [10, 20, 10, 30, 40, 20, 50, 30]
+unique_list = []
+
+for element in original_list:
+    if element not in unique_list:
+        unique_list.append(element)
+
+print(f"Original list: {original_list}")
+print(f"List with duplicates removed: {unique_list}")
+
+#Q6 Write function that checks whether a specified element is in within list.
+
+
+#Q7 Print the elements from a list thatlocated at index position whicheven num.
+data = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
+for i in range(len(data)):
+    if i % 2 == 0:
+        print(f"Index {i}: {data[i]}")
+
+#Q8 Print only elements from a list that located at an index position which odd.
+data = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
+for i in range(len(data)):
+    if i % 2 != 0:
+        print(f"Index {i}: {data[i]}")
+
+#Q9 list and separately count and printtotal num even num. total number odd num.
+int_list = [1, 5, 8, 12, 17, 20, 22, 31, 40]
+even_count = 0
+odd_count = 0
+for number in int_list:
+    if number % 2 == 0:
+        even_count += 1
+    else:
+        odd_count += 1
+
+print(f"The list: {int_list}")
+print(f"Total Even Numbers: {even_count}")
+print(f"Total Odd Numbers: {odd_count}")
+   
+#Q10 list print second list where each element square of the element in o list.  
+original_nums = [2, 3, 4, 5, 6]
+squared_nums = []
+
+for num in original_nums:
+    squared_nums.append(num * num)
+
+print(f"Original list: {original_nums}")
+print(f"Squared list: {squared_nums}")
+
+#Q11 Combine the elements of two lists single new list without the + or extend()
+list_a = [10, 20, 30]
+list_b = [40, 50, 60]
+combined_list = []
+for item in list_a:
+    combined_list.append(item)
+for item in list_b:
+    combined_list.append(item)
+
+print(f"List A: {list_a}, List B: {list_b}")
+print(f"Combined list: {combined_list}")
+
+#Q12 Modify list in place so that all numbers less than zero  are removed.
+data_list = [10, -5, 20, -1, 0, 30, -7, 40]
+i = 0
+while i < len(data_list):
+    if data_list[i] < 0:
+        del data_list[i]
+    else:
+        i += 1
+
+print(f"List after removing negative numbers: {data_list}")
+
+#Q13 Determine and print the second largest numerical value  list without sort
+#Q14 Cyclic Right Shift
+#Q15 Check ascending order
