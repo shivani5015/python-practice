@@ -1,0 +1,67 @@
+#Basic list question
+
+#Q1 Create a list of 5 arbitrary numerical values and print on console.
+li = [1,2,3,4,5]
+print(li)
+
+#Q2 display only the first and the last element.
+li = [1,2,3,4,5,6]
+print(li[0],li[-1])
+
+#Q3 print total no. of elements in list without using the built-in len() fun..
+li = [1,2,3,4,5,6,7]
+count=0
+for i in li:
+  count+=1
+print(count)  
+
+#Q4 chnge list by add new element to end only using list index & assign append() 
+
+original_list = [1, 2, 3]
+new_element = 4
+original_list[len(original_list):] = [new_element]
+print(f"List after adding {new_element}: {original_list}")
+
+#Q5 change the value of  element located at third index pos. with a given value.
+li = [1,2,3,4,5]
+new_li = li[3]=8
+print(li)
+
+#Q6 make script accept 5 diff input from user stores all sequentially in list.
+li = list(map(int,input("enter a list").split()))
+print(li)
+
+#Q7 Iterate a given list using a for loop and print each element on a new line.
+li = [1,2,4,5,6]
+for i in li:
+  print(i)
+
+#Q8 given list of integers, write code to print only the numbers that are even.
+li = [ 1,2,3,4,5,6,7]
+for i in li:
+  if i%2==0:
+    print(i)
+
+#Q9 givenlist and target number,cal., printtotal occurrences target number list.
+random_num = [10, 20, 10, 30, 40, 20, 10, 50, 20, 10]
+target = 10
+occurrence_count = 0
+
+for number in random_num:
+    if number == target:
+        occurrence_count += 1
+
+print(f"The list: {random_num}")
+print(f"The target number: {target}")
+print(f"Total occurrences of {target}: {occurrence_count}")
+
+#Q10 Cal., print sum of numerical elements in list without using sum() function.
+# Solution 10
+price_list = [1.50, 5.00, 10.25, 20.75, 0.50]
+total_sum = 0
+
+for price in price_list:
+    total_sum += price
+
+print(f"The list of prices: {price_list}")
+print(f"The total sum (manual calculation): {total_sum}")
