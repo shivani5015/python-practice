@@ -182,5 +182,27 @@ while i < len(data_list):
 print(f"List after removing negative numbers: {data_list}")
 
 #Q13 Determine and print the second largest numerical value  list without sort
+data = [10, 20, 4, 45, 99, 99, 21]
+largest = float('-inf')
+second_largest = float('-inf')
+
+for num in data:
+    if num > largest:
+        second_largest = largest
+        largest = num
+    elif num > second_largest and num != largest:
+        second_largest = num
+
+print(f"Second Largest: {second_largest}")
 #Q14 Cyclic Right Shift
 #Q15 Check ascending order
+li = [10, 20, 30, 40, 50]
+is_ascending = True
+for i in range(len(li) - 1):
+    if li[i] > li[i+1]:
+        is_ascending = False
+        break
+if is_ascending:
+    print("The list is in ascending order.")
+else:
+    print("The list is NOT in ascending order.")
