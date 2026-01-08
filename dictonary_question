@@ -1,0 +1,115 @@
+#Update the value of the second key and then add a brand new fourth key..
+di={'1':'shivani','2':'amita','3':'archana'}
+di['2']='neha'
+di['4']='babi'
+print(di)
+#Dynamic Sum:write a loop to calculate the average of the numbers in that list.
+di={'1':10,'2':20,'3':40,'4':50}
+sum=0
+count=0
+for key,values in di.items():
+  sum+=values
+  count+=1
+print(sum/count) 
+
+# write a loop to find the product ($x \times y \times z$) of all values.
+a = {'x': 5, 'y': 10, 'z': 2}
+prod=1
+for i in a.values():
+  prod*=i
+print(prod)  
+# 2: Give names,marks find and print the name who got the highest & lowest marks.
+di={'ayu':20,'vik':30,'sam':23,'tri':34,'kli':23,'sdfg':37}
+large_value=0
+min_value=float('inf')
+large_key=""
+min_key=""
+for key,value in di.items():
+  if value > large_value:
+        large_val = value
+        large_key = key
+  if value < min_value:
+        min_value = value
+        min_key = key
+print(f"key:{large_key} value is:{large_value}")    
+print(f"key:{min_key} value is:{min_value}")  
+
+
+#  print only the keys whose values are even numbers.
+data = {'a': 12, 'b': 65, 'c': 34, 'd': 90}
+for keys,values in data.items():
+  if values%2==0:
+    print(f"even key is :{keys}=value is:{values}")
+
+
+#Given print the names of fruits where the count is less than 25.
+inventory = {'apples': 50, 'bananas': 20, 'oranges': 10}
+for keys,values in inventory.items():
+ if values >25:
+  print(f"{key},{values}") 
+
+# Take string like "banana" and create a dict showing how many time each letter appears.
+a="Banana"
+di={}
+for i in a:
+  if i in di:
+    di[i]+=1
+  else:
+    di[i]=1  
+print(di)   
+
+# Using the dictionary from the previous question, print only the letters that appear more than once.
+a="Banana"
+di={}
+for i in a:
+  if i in di:
+    di[i]+=1
+  else:
+    di[i]=1  
+for key in di:
+  if di[key]>=2:
+   print(key,di[key])
+
+#, create a frequency map without using the .count() method.
+li = [10, 20, 10, 30, 20, 10]
+freq = {}
+for num in li:
+    if num in freq:
+        freq[num] += 1
+    else:
+        freq[num] = 1
+print(freq)
+
+# Write script to check if two strings are anagrams without sorted()fun(use loops)
+a="aet"
+b="tea"
+is_anagram=True
+for i in a:
+  if i not in b:
+    is_anagram=False
+    break
+if is_anagram:
+  print("Anagram")
+else:
+  print("not")      
+
+#Grouping:group the anagrams into a list of lists.
+words = ['rat', 'tar', 'bat', 'tab', 'eat']
+di={}
+for i in words:
+  key=''.join(sorted(i))
+  if key not in di:
+    di[key]=[]
+  di[key].append(i)
+list(di.values())    
+
+# Mergethem into one,but if key exists in both the new value should sum values.
+dict1 = {'a': 10, 'b': 20, 'c': 30}
+dict2 = {'b': 5, 'c': 10, 'd': 50}
+merged = dict1.copy()
+for key, value in dict2.items():
+    if key in merged:
+        merged[key] += value
+    else:
+        merged[key] = value
+print(merged)
