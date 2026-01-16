@@ -1,0 +1,617 @@
+#LIST – Coding Questions (1–15)
+#1. Write a Python program that takes a list of elements as input and removes
+#duplicate elements, while preserving the original order. Do not use the set()
+#data structure.
+li = list(map(int, input("Enter numbers: ").split()))
+unique_li = []
+for i in li:
+    if i not in unique_li:
+        unique_li.append(i)  
+print(unique_li)
+
+# 2. Write a Python program that takes a list integers & find the second largest
+# element by traversing the list only once.
+li = list(map(int, input("Enter numbers: ").split()))
+if len(li)<2:
+  print("list must have at least 2 numbers for comapare")
+else:  
+ first_largest=0
+ second_largest=0
+ for num in li:
+  if first_largest<num:
+    second_largest=first_largest
+    first_largest=num
+  elif second_largest<num:
+    second_largest=num
+print(first_largest)    
+print(second_largest) 
+
+# 3. Write a Python program that takes a list and an integer k as input & rotates the
+# list to the right by k positions.
+li = list(map(int, input("Enter list elements: ").split()))
+k = int(input("Enter k: "))
+n = len(li)
+k = k % n  
+for num in range(k):
+        element = li.pop()   
+        li.insert(0, element)
+print(li) 
+
+# 4. Write a Python program that takes a list of integers and a target sum,&finds all
+# pairs of elements whose sum equals the target value.   
+
+li = list(map(int, input("Enter numbers with spaces ").split()))
+target = int(input("Enter target sum: "))
+pairs = []
+n = len(li)
+for i in range(n):
+    for j in range(i + 1, n):
+        if li[i] + li[j] == target:
+            pairs.append((li[i], li[j]))
+
+print("Pairs found:", pairs)
+
+# 5. Write a Python program that checks whether a given list of numbers isalready
+# sorted in ascending order.
+li = list(map(int, input("Enter numbers with space: ").split()))
+is_sorted = True
+for i in range(len(li) - 1):
+    if li[i] > li[i + 1]:
+        is_sorted = False
+        break  
+if is_sorted:
+    print(" list is sorted in ascending order.")
+else:
+    print("The list is NOT sorted.")
+
+# 6.Write Python program that takes nested list & flattens it into a single list.
+nested_li = [[1, 2], [3, 4], [5, 6, 7], [8]]
+flattened_li = []
+for sublist in nested_li:
+    for item in sublist:
+        flattened_li.append(item)
+
+print("Original:", nested_li)
+print("Flattened:", flattened_li)
+
+
+# 7. Write a Python program that moves all zero elements to the end of the list while
+# maintaining the relative order of the non-zero elements.
+li = list(map(int, input("Enter numbers: ").split()))
+pos = 0
+for i in range(len(li)):
+    if li[i] != 0:
+        li[pos], li[i] = li[i], li[pos]
+        pos += 1
+print("Result:", li)
+
+
+#8. Write a Python program that counts the frequency of each element in a list and
+#displays the result.
+li = list(map(int, input("Enter numbers: ").split()))
+seen = []
+for num in li:
+    if num not in seen:
+        count = li.count(num)
+        print(f"{num}: {count}")
+        seen.append(num)
+
+# 9. Write a Python program that finds common elements between two lists,
+# without using the set() data structure.
+li=[1,2,3,4,5]
+li2=[3,4,5,6,7]
+for i in li:
+  for j in li2:
+    if i==j:
+      print(f"The comman element are:{i}")
+
+# 10. Write a Python program that removes all elements located at even index positions
+# from a list.
+li=[1,2,3,4,5,6,7]
+for i in range(len(li)-1,-1,-1):
+  if i%2==0:
+    del li[i]
+print(li)    
+
+# 11. Write a Python program that splits a list into smaller sublists (chunks) of size n.
+li = list(map(int, input("Enter numbers separated by space: ").split()))
+n = int(input("Enter chunk size (n): "))
+chunks = []
+for i in range(0, len(li), n):
+    chunk = li[i : i + n]
+    chunks.append(chunk)
+
+print("Sublists:", chunks)
+
+
+# 12. Write a Python program that merges two already sorted lists into a single 
+#sorted list.
+li=[1,2,3,4,6,5]
+li2=[7,8,6,5,9,2]
+merge_list=[]
+li.sort()
+li2.sort()
+merge_list=li+li2
+print(merge_list)
+
+
+# 13. Write a Python program that finds the missing number from a list containing
+#numbers from 1 to n, with exactly one number missing.
+nums = [1, 2, 4, 5, 6]
+n = len(nums) + 1
+expected_sum = n * (n + 1) // 2
+actual_sum = sum(nums)
+missing = expected_sum - actual_sum
+print(f"Missing number: {missing}")
+
+  
+
+# 🔹 TUPLE – Coding Questions (16–25)
+# 16. Write a Python program that finds the maximum and minimum element in tuple
+# of numbers.
+n = (1, 2, 3, 4, 5, 6, 7)
+largest = 0
+smallest = float('inf')
+for i in n:
+    if i > largest:
+        largest = i
+    if i < smallest:
+        smallest = i
+print("Maximum:", largest)
+print("Minimum:", smallest)   
+# 17. Python program that converts tuple into a list performs a modification,
+# and then converts it back into a tuple.
+my_tuple = (10, 20, 30, 40)
+print("Original Tuple:", my_tuple)
+my_list = list(my_tuple)
+my_list[0] = 99
+my_list.append(50)
+my_tuple = tuple(my_list)
+print("Modified Tuple:", my_tuple)
+
+# 18. Write a Python program that counts the number of occurrences of a given
+# element in a tuple.
+n = (1, 2, 3, 4, 5, 6, 6, 7)
+target = 6
+count = 0
+for i in n:
+    if i == target: 
+        count += 1
+print(f"The element {target} appears {count} times.") 
+# 19. Write a Python program that removes duplicate elements from a tuple& retur
+# a new tuple.
+n = (1, 2, 2, 3, 4, 4, 5)
+unique_list = []
+for i in n:
+    if i not in unique_list:
+        unique_list.append(i)
+new_tuple = tuple(unique_list)
+print(new_tuple) 
+
+
+# 20.Write a Python program that sorts tuple of integers and returns new sorted
+# tuple.
+li = (1, 2, 8, 9, 6, 3)
+temp_li = list(li)
+n = len(temp_li)
+for i in range(n):
+    for j in range(0, n - i - 1):
+        if temp_li[j] > temp_li[j + 1]:
+            temp_li[j], temp_li[j + 1] = temp_li[j + 1], temp_li[j]
+new_tuple = tuple(temp_li)
+print("Manually Sorted Tuple:", new_tuple)   
+
+# 21. Write a Python program that finds the index of a specific element in a tup
+# without using the built-in index() method.
+tup = (10, 30, 20, 30, 40, 30)
+target = 30
+indices = () 
+for i in range(len(tup)):
+    if tup[i] == target:
+        indices = indices + (i,)
+print(f"The element {target} appears at indices: {indices}")
+# 22.Write a Python program that unpacks a tuple into multiple variables and prints
+# each variable.
+va = ("shivani", 20, 'f')
+name, age, gender = va
+print("Name:", name)
+print("Age:", age)
+print("Gender:", gender)
+
+
+# 23.Write a Python program that checks whether a tuple is a palindrome, meaning 
+# reads the same forward and backward.
+tup = (1, 2, 3, 2, 1)
+is_palindrome = True
+n = len(tup)
+for i in range(n):
+    if tup[i] != tup[n - 1 - i]:
+        is_palindrome = False
+        break
+if is_palindrome:
+    print("It is a palindrome!")
+else:
+    print("It is NOT a palindrome.")
+
+# 24.Write a Python program that merges 2 tuples element-wise (pairing elements 
+# the same index).
+tup1 = (1, 2, 3)
+tup2 = ('a', 'b', 'c')
+merged_list = []
+for i in range(len(tup1)):
+    pair = (tup1[i], tup2[i])
+    merged_list.append(pair)
+result = tuple(merged_list)
+print(result)
+
+# 25. Write a Python program that finds the common elements between two 
+tup1 = (1, 2, 3, 4, 5)
+tup2 = (4, 5, 6, 7, 8)
+common_list = []
+for i in tup1:
+  for j in tup2:
+    if i==j:
+      if i not in common_list:
+                common_list.append(i)
+result = tuple(common_list)
+print("Common elements:", result)
+
+# 🔹 SET – Coding Questions (26–35)
+
+# 26.Write a Python program that removes duplicat elements from a list using set
+# and converts the result back into a list.
+li = [1, 2, 2, 4, 6, 7, 7, 8]
+unique_set = set(li)
+unique_li = list(unique_set)
+print(f"Original List: {li}")
+print(f"Unique List:   {unique_li}")
+# 27. Write a Python program that finds union, intersection,&difference of two
+# sets.
+set_a = {1, 2, 3, 4, 5}
+set_b = {4, 5, 6, 7, 8}
+union_set = set_a | set_b
+intersection_set = set_a & set_b
+difference_set = set_a - set_b
+print(f"Union:        {union_set}")       
+print(f"Intersection: {intersection_set}")
+print(f"Difference:   {difference_set}")   
+
+# 28.Write a Python program that checks whether one set is subset of another set
+set_a = {1, 2, 3}
+set_b = {1, 2, 3, 4, 5}
+is_subset = True
+for element in set_a:
+    if element not in set_b:
+        is_subset = False
+        break  
+print(f"Is Set A a subset of Set B? {is_subset}")
+
+# 29.Write a Python program that finds the elements present in the first set but not in
+# the second set.
+set_a = {1, 2, 3, 8, 9}
+set_b = {1, 2, 3, 4, 5}
+for i in set_a:
+  if i not in  set_b:
+    print(i,end=" ")
+
+# 30.Write a Python program that removes the common elements from two sets,
+# leaving only unique elements in each.
+set_a = {1, 2, 3, 8, 9}
+set_b = {1, 2, 3, 4, 5}
+unique_set = set()
+for i in set_a:
+    if i not in set_b:
+        unique_set.add(i)
+for i in set_b:
+    if i not in set_a:
+        unique_set.add(i)
+print(unique_set)
+
+
+# 31. Write a Python program that finds the symmetric difference between two sets.
+set_a = {1, 2, 3, 8, 9}
+set_b = {1, 2, 3, 4, 5}
+unique_set = set_a ^ set_b
+print(unique_set) 
+
+# 32.Write a Python program that checks whether two sets are disjoint, meaning they
+# have no elements in common.
+set_a = {1, 2, 3}
+set_b = {4, 5, 6}
+are_disjoint = True
+for element in set_a:
+    if element in set_b:
+        are_disjoint = False
+        break 
+if are_disjoint:
+    print("The sets have no elements in common.",)
+else:
+    print("The sets share at least one element.")
+
+# 33.Write a Python program that converts a list of lists into a set of tuplesso 
+# duplicates can be removed.
+list_of_lists = [[1, 2], [3, 4], [1, 2]]
+unique_set = set()
+for inner_list in list_of_lists:
+    t = tuple(inner_list)
+    unique_set.add(t)
+print(unique_set)
+
+
+# 34.Write a Python program that counts the number of unique vowels present in a
+# string using a set.
+s=set('hey i am shivani')
+vowel="aeiouAEIOU"
+unique_set=set()
+for char in s:
+  if char in vowel:
+    unique_set.add(char)
+print(unique_set)    
+
+
+# 35. Write a Python program that removes duplicate characters from a string using a
+# set, while preserving the original order.
+text = "hello world"
+seen = set()
+result = []
+for char in text:
+    if char not in seen:
+        seen.add(char)    
+        result.append(char) 
+unique_text = "".join(result)
+print(f"Original: {text}")
+print(f"Ordered Unique: {unique_text}")
+
+# 🔹 STRING – Coding Questions (36–50)
+# 36.Write a Python program that reverses a string without using slicing.
+text = "Python"
+reversed_text = ""
+for char in text:
+    reversed_text = char + reversed_text
+print(f"Original: {text}")
+print(f"Reversed: {reversed_text}")
+
+
+# 37. Write a Python program that checks whether a given string is a palindrome.
+text = "naman"
+if text==text[::-1]:
+  print("pallindrome")
+else:
+  print("not")
+
+
+# 38.Write a Python program that checks whether two strings are anagrams of each
+# other.
+a="aet"
+b="tea"
+is_anagram=True
+for i in a:
+  if i not in b:
+    is_anagram=False
+    break
+if is_anagram:
+  print("Anagram")
+else:
+  print("not")
+
+
+# 39.Python program that finds the first non-repeating character in string.
+a = "hello"
+for i in a:
+    if a.count(i) == 1:
+        print(f"first non-repeating is: {i}")
+        break
+
+# 40.Python program that counts the frequency of each character in  string.
+a = "python programming"
+unique_chars = set(a)
+for char in unique_chars:
+    count = a.count(char)
+    print(f"'{char}': {count}")
+
+# 41. Python program that removes all special characters from a string, keeping
+# only alphabets and digits.
+text = "Hello! $3.12 #Program_2026?"
+clean_text = ""
+for char in text:
+    if char.isalnum():
+        clean_text += char
+print(f"Cleaned:  {clean_text}")
+
+# 42.Write a Python program that finds the longest word in a given sentence.
+sent="hey i am good"
+word=sent.split()
+larg_word=""
+for i in word:
+  if len(i)>len(larg_word):
+    larg_word=i
+print(larg_word)
+
+# 43. Python program that capitalize the first letter of each word in a sentence.
+# sentence = "python is fun to learn"
+words = sentence.split()
+capit_words = []
+for word in words:
+    capit_words.append(word.capitalize())
+result = " ".join(capit_words)
+
+print(result)
+# 44. Python program that checks whether a string contains only digits.
+t = "12345689"
+if t.isdigit():
+    print(f"'{t}' contains only digits.")
+else:
+    print(f"'{t}' contains letters ")
+
+# 45.Python program that replaces all vowels in a string with the * character.
+text = "Python Programming"
+vowels = "aeiouAEIOU"
+result = ""
+for char in text:
+    if char in vowels:
+        result += "*"  
+    else:
+        result += char 
+print(f"Original: {text}")
+print(f"Modified: {result}")
+
+#46.Python program that counts the number of words in a sentence.
+sentence = "Python is an amazing programming language"
+words = sentence.split()
+word_count = len(words)
+print(f"Total words: {word_count}")
+
+#47. Python program that finds duplicate characters in a string.
+text = "hello world"
+s = set()
+duplicates = set()
+for char in text:
+    if char in s:
+        duplicates.add(char)
+    else:
+        s.add(char)
+print(f"Duplicates: {list(duplicates)}")
+#48.Write a Python program that removes consecutive duplicate characters from a
+#string.
+
+
+# 49.Python program that checks whether a sentence is valid palindrome,
+# ignoring spaces, punctuation, and case.
+
+
+# 50.Python program that finds the most frequently occurring character in string
+text = "success"
+counts = {}
+for char in text:
+    if char in counts:
+        counts[char] += 1
+    else:
+        counts[char] = 1
+max_char = ""
+max_count = 0
+for char in counts:
+    if counts[char] > max_count:
+        max_count = counts[char]
+        max_char = char
+print(f"frequent character is '{max_char}'appears {max_count} times.")
+
+
+# 🔹 DICTIONARY – Coding Questions (51–60)
+# 51. Python program that counts the frequency of each element in list using a
+# dictionary.
+num_list = [10, 20, 10, 30, 20, 10, 40, 30, 10]
+frequency = {}
+for num in num_list:
+    if num in frequency:
+        frequency[num] += 1
+    else:
+        frequency[num] = 1
+print(frequency)
+# 52.Python program that counts the frequency of each word in a sentence
+# using a dictionary
+sentence = "apple banana apple cherry banana apple"
+words = sentence.split()
+frequency = {}
+for word in words:
+    if word in frequency:
+        frequency[word] += 1
+    else:
+        frequency[word] = 1
+print(frequency)
+
+# 53. Python program that sorts a dictionary by its values in ascending or
+# descending order.
+data = {'apple': 40, 'banana': 10, 'cherry': 30, 'date': 20}
+items = list(data.items())
+n = len(items)
+for i in range(n):
+    for j in range(0, n - i - 1):
+        if items[j][1] > items[j + 1][1]:
+            items[j], items[j + 1] = items[j + 1], items[j]
+
+sorted_asc = dict(items)
+print(f"Ascending:  {sorted_asc}")
+items = list(data.items())
+
+for i in range(n):
+    for j in range(0, n - i - 1):
+        if items[j][1] < items[j + 1][1]:
+            items[j], items[j + 1] = items[j + 1], items[j]
+
+sorted_desc = dict(items)
+print(f"Descending: {sorted_desc}")
+
+
+# 54. Python program that finds the key associated with the maximum value in
+# a dictionary.
+di={'ayu':20,'vik':30,'sam':23,'tri':34,'kli':23,'sdfg':37}
+large_value=0
+large_key=""
+for key,value in di.items():
+  if value > large_value:
+        large_val = value
+        large_key = key
+print(f"key:{large_key} value is:{large_value}")    
+
+# 55. Python program that merges two dictionaries into a single dictionary.
+dict1 = {"x": 10, "y": 20}
+dict2 = {"z": 30}
+merged_dict = {**dict1, **dict2}
+print(merged_dict)
+
+# 56.  Python program that removes dictionary entries that have duplicate
+# values, keeping only one unique value.
+data = {"a": 10, "b": 20, "c": 10, "d": 30, "e": 20}
+result = {}
+for key, value in data.items():
+    if value not in result.values():
+        result[key] = value
+print(f"Cleaned:  {result}")
+
+# 57. Python program that inverts a dictionary, meaning keys become values
+# and values become keys.
+data = {"a": 1, "b": 2, "c": 3}
+inverted = {}
+for key in data:
+    value = data[key]
+    inverted[value] = key
+print(f"Inverted: {inverted}")
+
+# 58.Python program that checks whether two dictionaries are equal,
+dict1 = {"a": 1, "b": 2, "c": 3}
+dict2 = {"c": 3, "a": 1, "b": 2}
+if dict1 == dict2:
+    print(" equal")
+else:
+    print("not equal")
+# 59.Python program that groups dictionary keys that have the same value
+# together.
+data = {"Apple": "Red", "Banana": "Yellow", "Cherry": "Red", "Lemon": "Yellow"}
+grouped = {}
+
+for key, value in data.items():
+    if value not in grouped:
+        grouped[value] = [key]
+    else:
+        grouped[value].append(key)
+
+print(f"Group data: {grouped}")
+# 60. Python program that finds the first non-repeating character in a string
+# using a dictionary.
+text = "swiss"
+char_count = {}
+for char in text:
+    if char in char_count:
+        char_count[char] += 1
+    else:
+        char_count[char] = 1
+result = None
+for char in text:
+    if char_count[char] == 1:
+        result = char
+        break
+if result:
+    print(f"The first non-repeating character is: {result}")
+else:
+    print("No non-repeating character found.")
+
