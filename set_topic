@@ -1,0 +1,143 @@
+#calculator program
+x=int(input("enter"))
+y=int(input("enter"))
+operation=input('what opention do you want to perform')
+def add(x, y):
+    return x + y 
+def subtract(x, y):
+    return x - y
+def multiply(x, y):
+    return x * y   
+def divide(x, y):
+    return x / y
+if operation=='sum':
+  sum=add(x,y)   
+  print('The sum is',sum)
+elif operation=='sub':
+  sub=subtract(x,y)
+  print('The subtract is',sub)
+elif operation=='multiply':
+  mul=multiply(x,y) 
+  print('The multiply is',mul)
+elif operation =='divide':
+  div=divide(x,y) 
+  print('The divide is',div)
+
+def student_info(name, age=20, city='Jaipur'):
+    return (f"My name is {name}, age is {age}, city is {city}")
+name = input("Enter name: ")
+city = input("Enter city: ")
+msg = student_info(name, city=city) 
+print(msg)
+
+count=0
+def increse_count():
+  global count
+  count+=1
+  print(count)
+increse_count()
+# increse_count()
+
+#high order function are the function which are use to call another function as 
+#an parameter
+#into the high oredr function we basically pass other function as an argument of 
+#another function
+
+def hello(fun):
+  print('Hello from hello function')
+  #here we have called the another function inside function
+  fun()
+
+def fun():
+  print('hello from nested function')
+  #here we hav epassed the another function as an argument
+hello(fun)   
+
+
+
+#into the high order function we can define another function
+def outer():
+  print('outer function is running!')
+  def inner():
+    print('inner function is running')
+  inner()
+outer()  
+
+#write a program to define the function inside function 
+#in which you ppass 2 numbers and inner function prints the the sum of two numbers
+#and call into the outer function
+
+def num(a,b):
+  def add(a,b):
+    return a+b
+  sum=add(a,b)
+  return sum  
+result=num(5,5)
+print(result)
+
+#write a program to chcek a no is even or not
+def is_even(n):
+    if n % 2 == 0:
+        return True
+    else:
+        return False
+num = int(input("Enter a number: "))
+check = is_even(num)  
+if check:
+    print(f"{num} is Even")
+else:
+    print(f"{num} is Odd")
+
+
+
+#write a program to check wheater a no is prime or not
+def is_prime(a):
+  i=2
+  while i<a:
+    if a%i==0:
+      return False
+    i+=1
+  return True  
+a=int(input("enter"))   
+k=is_prime(a) 
+if k:
+  print(f"{a} is prime")
+else:
+  print("not prime")  
+
+#lamba reduce map recursion
+
+#write a program to rev a list:
+def reverse_list(data):
+    left = 0
+    right = len(data) - 1
+    
+    # Swap elements until the pointers meet in the middle
+    while left < right:
+        data[left], data[right] = data[right], data[left]
+        left += 1
+        right -= 1
+    return data
+
+# Testing the function
+my_list = [1, 2, 3, 4, 5]
+print(f"Manual Reversed: {reverse_list(my_list)}")
+
+#variable length argumnets=are usde to pass the variable length of the arguments
+# either it could be 3 or more
+#it return all argumenmt in form of tuple
+def add(*args):
+  sum=1
+  for i in args:
+    sum+=i
+  return sum
+add(2,3,4,5,6)  
+
+
+#variabe length keyword arguments in which we can key value as much as we want 
+#variable it returns the data in the form of dictoanry in we return 
+def details(**kwargs):
+  for key,value in kwargs.items():
+    print(f"{key}={value}")
+  
+details(name='Rahul',batch='a23',location='jaipur') 
