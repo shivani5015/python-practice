@@ -1,0 +1,605 @@
+# Functions Assignment
+# 1. Write a function to add two numbers and return the result.
+def add(a,b):
+  return a+b
+sum=add(4,5) 
+print(sum) 
+# 2. Write a function that takes a number and returns its square.
+def square(a):
+  return a*a
+squared=square(6)
+print(squared)  
+# 3. Write a function to check whether a number is even or odd.
+def even_odd(a):
+  if a%2==0:
+    return "even"
+  else:
+    return "odd" 
+print(even_odd(4))     
+# 4. Write a function to find the maximum of three numbers.
+def find_max(a, b, c):
+    if a >= b and a >= c:
+        return a
+    elif b >= a and b >= c:
+        return b
+    else:
+        return c
+result = find_max(10, 25, 15)
+print(result)
+  
+# 5. Write a function to calculate the factorial of a number (without recursion).
+def factorial(a):
+  fact=1
+  for i in range(1,a+1):
+    fact*=i
+  return fact
+print(factorial(4))  
+    
+# 6. Write a function to check whether a number is prime.
+def is_prime(a):
+  for i in range(2,a):
+    if a%i==0:
+      return "not prime"
+  return "prime"  
+print(is_prime(7))      
+# 7. Write a function to return the sum of all numbers in a given list.
+def sum_all(li):
+  sum=0
+  for i in li:
+    sum+=i
+  return sum 
+numberss=[1,2,3,4,5,6]  
+print(sum_all(numberss))
+
+# 8. Write a function to count the number of digits in a number.
+def count_all(li):
+  count=0
+  for i in li:
+    count+=1
+  return count 
+numberss=[1,2,3,4,5,6]  
+print(count_all(numberss))
+
+# 9. Write a function to reverse a number.
+def reverse_number(n):
+    reversed= 0
+    while n > 0:
+        last_digit = n % 10
+        reversed = (reversed* 10) + last_digit
+        n = n // 10
+    return reversed
+
+print(reverse_number(9876))
+
+# 10. Write a function to reverse a string.
+def rev_str(a):
+  rev=""
+  for c in a:
+    rev=c+rev
+  return rev
+print(rev_str("python"))    
+
+# 11. Write a function to count vowels in a string.
+def count_vowels(strin):
+  count=0
+  vowel="aeiouAEIOU"
+  for i in strin:
+    if i in vowel:
+      count+=1
+  return count    
+print(count_vowels("python language"))
+# 12. Write a function that returns both the minimum and maximum from a list.
+def max_min(li):
+    max_val = li[0]
+    min_val = li[0]
+    for i in li:
+        if i > max_val:
+            max_val = i
+        if i < min_val:
+            min_val = i
+    return max_val, min_val
+li = [1, 4, 8, 6, 10]
+mx, mn = max_min(li) 
+print(f"Max in list is {mx}, min in list is {mn}")
+
+
+
+# 13. Write a function using default arguments to calculate simple interest.
+# p=Principal, r=Rate, t=Time
+def calculate_si(p, r=5, t=1):
+    interest = (p * r * t) / 100
+    return interest
+result1 = calculate_si(1000)
+print(f"SI with defaults: {result1}")
+
+# 14. function that accepts any number of arguments and returns their sum using
+# *args.
+def sum_any(*args):
+    total = 0
+    for num in args:
+        total += num
+    return total
+print(f"Sum of 5 numbers: {sum_any(1, 2, 3, 4, 5)}")
+
+# 15.function that accepts key-value pairs using **kwargs and prints  formatted
+# form.
+def details(**kwargs):
+  for key,value in kwargs.items():
+    print(f"{key}={value}")
+details(name='Rahul',batch='a23',location='jaipur') 
+
+# 16. Write a function to check whether a string is a palindrome.
+def is_palindrome(s):
+    n = len(s)
+    for i in range(n // 2):
+        if s[i] != s[n - 1 - i]:
+            return "Not a palindrome"
+    return "It is a palindrome"
+print(is_palindrome("racecar"))  
+ 
+
+# 17. Write a function that returns the nth Fibonacci number using loops.
+def get_fibonacci(n):
+    a = 0 
+    b = 1  
+    for i in range(2, n + 1):
+        temp = a + b
+        a = b
+        b = temp
+    return b
+print(f"The 5th Fibonacci number is: {get_fibonacci(5)}") 
+
+# 18. Write a function that swaps two numbers without using a third variable.
+def swap_numbers(a, b):
+    print(f"Before swap: a = {a}, b = {b}")
+    a, b = b, a
+    print(f"After swap:  a = {a}, b = {b}")
+    return a, b
+a, b = swap_numbers(5, 10)
+# 19. Write a function that returns whether a year is a leap year.
+def is_leap_year(year):
+   
+    if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+        return (f"{year} is a leap year")
+    else:
+        return (f"{year} is not a leap year")
+
+print(is_leap_year(2024))  
+
+# 20. Write a function that converts Celsius to Fahrenheit.
+#using def
+li_temp = [0, 20, 30, 40]
+change = []  
+def celsius_to_fahrenheit(c):
+    f = (c * 9/5) + 32
+    return f
+for i in li_temp:
+    converted = celsius_to_fahrenheit(i)
+    change.append(converted)
+
+print(change)
+
+# 21. Write a function that counts how many times a function is called.
+count = 0
+def my_function():
+    global count
+    count += 1
+    print(f"Function called {count} times")
+my_function()
+my_function()
+
+# 22. Write a function that returns another function.
+def greeting_factory(greeting):
+    def say_it(name):
+        return f"{greeting}, {name}!"
+    return say_it
+
+hello_func = greeting_factory("Hello")
+print(hello_func("Alice")) 
+
+# 23. Write a function that takes another function as an argument and executes.
+def operate(func, x, y):
+    return func(x, y)
+
+def add(a, b): return a + b
+print(operate(add, 10, 5)) 
+
+# 24. Write a lambda function to find the square of a number.
+# Square
+square = lambda x: x**2
+print(square(4)) 
+
+# 25. Write a lambda function to find the maximum of two numbers.
+find_max = lambda a, b: a if a > b else b
+print(find_max(10, 20)) 
+
+# 26. Write a function to calculate the power of a number (a^b).
+def power(a, b):
+    return a ** b
+
+print(power(2, 3)) 
+
+# 27. Write a function to find the sum of digits of a number.
+def sum_digits(n):
+    total = 0
+    for digit in str(n):
+        total += int(digit)
+    return total
+
+print(sum_digits(123)) 
+# 28. Write a function that checks whether all arguments passed are positive num
+def all_positive(*args):
+    for n in args:
+        if n <= 0:
+            return False
+    return True
+
+print(all_positive(1, 2, 3))  
+
+
+# 29. that returns multiple values (sum, difference, product) of two numbers.
+def math_ops(a, b):
+    return a + b, a - b, a * b
+s, d, p = math_ops(10, 2)
+print(f"Sum: {s}, Diff: {d}, Prod: {p}")
+
+# 30. Write a function that prints a pattern using only function calls.
+def print_star(n):
+    if n > 0:
+        print("*" * n)
+        print_star(n - 1) 
+
+print_star(4)
+# 31. Write a function to calculate the average of numbers using *args.
+def calculate_average(*args):
+    total = 0
+    count = 0
+    for num in args:
+        total += num  
+        count += 1     
+        
+    return total / count
+
+print(calculate_average(10, 20, 30, 40)) 
+# 32. Write a function to merge two dictionaries using **kwargs.
+def merge_with_extra(base_dict, **kwargs):
+    return {**base_dict, **kwargs}
+
+user = {"id": 101}
+final_user = merge_with_extra(user, name="Bob", role="Admin")
+
+print(final_user) 
+
+# 33. Write a function that demonstrates local and global variable behavior.
+x = "global"
+
+def test_scope():
+    x = "local" 
+    print("Inside function:", x)
+
+test_scope()
+print("Outside function:", x)
+
+
+
+# 34. Write a function that accepts another function and applies it to a value.
+def apply_operation(func, value):
+    return func(value)
+def square(n):
+    return n * n
+
+def double(n):
+    return n * 2
+num = 5
+
+result1 = apply_operation(square, num)
+result2 = apply_operation(double, num)
+print(f"square  {num}: {result1}") 
+print(f"double {num}: {result2}") 
+
+# 35. Write a function to generate a multiplication table of a number.
+def mul_tab(n):
+    for i in range(1, 11): 
+        prod = n * i
+        print(f"{n} x {i} = {prod}")
+mul_tab(5)
+# 36. Write a function to check whether a number is Armstrong or not.
+def is_armstrong(num):
+    s_num = str(num)
+    length = len(s_num)
+    total = 0
+    for digit in s_num:
+        total += int(digit) ** length
+        
+    if total == num:
+        return (f"{num} is an Armstrong number")
+    else:
+        return (f"{num} is not an Armstrong number")
+print(is_armstrong(153)) 
+
+
+# 37. Write a function that validates a password based on given rules.
+def validate_password(password):
+    if len(password) < 8:
+        return " Password must be at least 8 characters"
+    has_upper = False
+    has_digit = False
+    for char in password:
+        if char.isupper():
+            has_upper = True
+        if char.isdigit():
+            has_digit = True
+    if not has_upper:
+        return "Invalid: Must contain at least one uppercase letter."
+    if not has_digit:
+        return "Invalid: Must contain at least one digit."
+
+    return "Valid Password!"
+print(validate_password("python123")) 
+
+
+
+# 38. Write a function to count words in a sentence.
+def count_word(sen):
+  word=sen.split()
+  count=0
+  for i in word:
+    count+=1
+  return count
+a="python is programming language"
+print(f"count of words in sentence is {count_word(a)}")    
+
+
+# 39. Write a function to remove duplicates from a list.
+def rem_duplicates(li):
+  unique=[]
+  for i in li:
+    if i not in unique:
+      unique.append(i)
+  return unique
+num=[1,2,2,3,4,5]    
+print(rem_duplicates(num))
+
+
+# 40. Write a function to check whether two strings are anagrams.
+def is_anagram(str1, str2):
+    s1 = str1.lower()
+    s2 = str2.lower()
+    return sorted(s1) == sorted(s2)
+print(is_anagram("Listen", "Silent"))  
+"""
+#Theory Question
+41. High-level language: It’s designed to be easy for humans to read and write. 
+It handles complex tasks like memory management automatically.
+
+42. Key Features: Simple syntax, interpreted (no compilation needed), huge 
+library support, and works on all major operating systems.
+
+43. Case-sensitive: Yes. MyVar and myvar are completely different things 
+in Python.
+
+44. Python 2 vs 3: Python 3 is the modern version. The biggest change was 
+in how it handles strings (Unicode) and the fact that print became a function 
+print() instead of a statement.
+
+45. Interpreter: A program that executes your code line-by-line rather than 
+converting the whole file into machine code first.
+
+46. Execution: Your code is converted into "Bytecode" (.pyc files) and then run
+ by the Python Virtual Machine (PVM).
+
+47. Dynamic Typing: You don't have to declare the type of a variable 
+(like int or string). Python figures it out at runtime based on the value you
+ give it.
+
+48. Strong Typing: Python won't let you do crazy things like adding a string to 
+an integer ("5" + 5 will error) without manual conversion.
+
+Variables & Memory
+49. Variable: A named container used to store data in memory.
+
+50. Creation: They are created the moment you assign a value to them using the =
+ sign.
+
+51. Naming Rules: Must start with a letter or underscore; can’t start with a 
+number; no spaces; only alphanumeric characters and underscores.
+
+52. Keywords: Reserved words (like if, while, return) that have special 
+meaning and cannot be used as variable names.
+
+53. See Keywords: Import the keyword module and run print(keyword.kwlist).
+
+54. Memory Management: Managed by the Python Memory Manager. It handles the 
+heap space where objects are stored.
+
+55. Garbage Collection: An automatic process that deletes objects that 
+are no longer being used to free up memory.
+
+Syntax & Data Types
+56. Indentation: Using whitespace (usually 4 spaces) at the start of a line to
+ define a block of code.
+
+57. Importance: It’s not just for looks; Python uses it instead of curly braces
+ {} to know which code belongs to a loop or function.
+
+58. Comment: Text ignored by the interpreter, used to explain what the code 
+is doing.
+
+59. Single vs Multi-line: Single uses #. Multi-line usually uses triple quotes
+  or """
+"""
+#60. Expression: A piece of code that evaluates to a value (e.g., 2 + 3).
+
+61. Statement: An instruction that does something (e.g., x = 5 or print(x)).
+
+62. Difference: Expressions produce values; statements perform actions.
+
+63. Literals: The raw data assigned to variables (e.g., 10, "Hello", 3.14).
+
+64. Data Types: Categories that tell Python what kind of data a value is 
+ (Numbers, Strings, Lists, etc.).
+
+65. Built-in types: Main ones are int, float, complex, str, list, tuple, 
+dict, set, and bool.
+
+66. type() function: Used to check the data type of any object.
+
+67. Type Casting: Converting a variable from one type to another 
+ (e.g., turning a string into an integer).
+
+68. Implicit vs Explicit: Implicit is done automatically by Python 
+ (like adding an int to a float). Explicit is when you do it manually 
+ using functions like int() or str().
+
+
+69. input() function: Used to get data from the user via the keyboard.
+
+70. Default return: It always returns data as a string, even if the user types a 
+number.
+
+71. print() vs input(): print() sends data out to the screen; input() takes 
+data in from the user.
+
+Operators
+72. Operators: Symbols that perform operations on values (like +, -, *).
+
+73. Types: Arithmetic, Comparison (Relational), Logical, Bitwise, Assignment, 
+Identity, and Membership.
+
+74. = vs ==: = is for assigning a value; == is for checking if two values are
+ equal.
+
+75. is vs ==: == checks if the values are the same. is checks if they are the 
+exact same object in memory.
+
+76. Relational: Operators that compare values (>, <, >=, <=, !=).
+
+77. Logical: Used to combine conditional statements (and, or, not).
+
+78. Short-circuiting: If the result of a logical expression is already clear 
+from the first part (like False and ...), Python stops and doesn't check the rest.
+
+79. Bitwise: Operators that work on the binary bits of a number
+ (&, |, ^, ~, <<, >>).
+
+
+80. Conditional Statement: Code that runs only if a certain condition is met.
+
+81. if: The starting condition.
+
+82. elif: Short for "else if"; used to check multiple conditions if the first
+ one fails.
+
+83. else: The "catch-all" block that runs if none of the previous conditions 
+were true.
+
+84. if without else: Yes, this is perfectly fine.
+
+85. Nested if: An if statement inside another if statement.
+
+86. Loop: A way to repeat a block of code multiple times.
+
+87. Why use them: To avoid writing the same code over and over and to
+ process items in a collection.
+
+88. for loop: Used when you know how many times you want to repeat 
+ (usually iterating over a sequence).
+
+89. while loop: Used when you want to repeat as long as a condition is true.
+
+90. Difference: for is usually for sequences; while is for conditions.
+
+91. Infinite loop: A loop that never stops because the condition is always true.
+
+92. break: Stops the loop immediately.
+
+93. continue: Skips the rest of the current loop iteration and moves to the next one.
+
+94. pass: A "do nothing" placeholder used when syntax requires a statement but 
+you don't want to run any code.
+
+95. range(): A function that generates a sequence of numbers.
+
+96. range(1, 10, 2): Produces 1, 3, 5, 7. (Starts at 1, stops before 10, 
+                                           jumps by 2).
+
+97. range() in while: Not directly, but you can use it to control a counter 
+variable in a while loop.
+
+98. loop else: A block of code that runs after a loop finishes naturally.
+
+99. When does loop else execute: Only if the loop finished without hitting a
+ break statement.
+
+Functions & Scope
+100. Function: A reusable block of code that only runs when called.
+
+101. Why use them: To make code organized, readable, and to avoid repetition 
+ (DRY - Don't Repeat Yourself).
+
+102. Define a function: Use the def keyword followed by the name and parentheses.
+
+103. Syntax: def function_name(parameters): followed by indented code.
+
+104. Function calling: Writing the function name with parentheses 
+ (e.g., my_func()) to execute its code.
+
+105. Defining vs Calling: Defining is writing the instructions; calling
+  is actually executing them.
+
+106. Parameters: The variables listed in the function definition.
+
+107. Arguments: The actual values you send to the function when you call it.
+
+108. Difference: Parameters are placeholders; arguments are the real data.
+
+109. return: Sends a result back to where the function was called and exits the 
+  function.
+
+110. Multiple returns: Yes, Python can return multiple values separated by 
+  commas (it returns them as a tuple).
+
+111. No return: The function will return None by default.
+
+112. Default parameter: A parameter that has a pre-assigned value if the caller
+  doesn't provide one.
+
+113. How default works: If you call func(), it uses the default; if you call 
+  func(value), it uses your value.
+
+114. Positional arguments: Arguments that must be passed in the correct order.
+
+115. Keyword arguments: Passing arguments using the name (e.g., func(age=25))
+ so order doesn't matter.
+
+*116. args: Allows a function to take any number of positional arguments
+  (stores them as a tuple).
+
+*117. Why args: Use it when you don't know ahead of time how many inputs the
+ user will provide.
+
+**118. kwargs: Allows a function to take any number of keyword arguments 
+ (stores them as a dictionary).
+
+**119. Why kwargs: Useful for handling named data like user settings or profiles.
+
+120. Using both: Yes, but they must be in order: (params, *args, **kwargs).
+
+121. Variable Scope: The region of code where a variable is "visible" or 
+  accessible.
+
+122. Local Scope: Variables created inside a function; they only exist while the 
+  function is running.
+
+123. Global Scope: Variables created in the main body of the script; they can 
+  be seen everywhere.
+
+124. Local vs Global: Local belongs to a function; Global belongs to the whole 
+  file.
+
+125. global keyword: Used inside a function to tell Python you want to modify a 
+  global variable.
+
+126. Why need global: Without it, if you try to change a global variable inside a 
+  function, Python will just create a new local variable with the same name 
+  instead."""
