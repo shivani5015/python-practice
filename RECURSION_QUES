@@ -1,0 +1,519 @@
+# Functions Assignment
+
+# 1. Print numbers from 1 to n using recursion.
+def print_numbers(n):
+    if n == 0:
+        return
+    print_numbers(n - 1)
+    print(n)
+n = int(input("Enter a value for n: "))
+print_numbers(n)
+
+# 2. Print numbers from n to 1 using recursion.
+def print_numbers(n):
+    if n == 0:
+        return
+    print(n)
+    print_numbers(n - 1)
+n = int(input("Enter a value for n: "))
+print_numbers(n)
+
+# 3. Find the sum of first n natural numbers using recursion.
+def calculate_sum(n):
+    if n == 0:
+        return 0
+    return n + calculate_sum(n - 1)
+n = int(input("Enter a value: "))
+result = calculate_sum(n)
+print(result)
+
+# 4. Find the factorial of a number using recursion.
+def fact_num(n):
+  if n==0:
+    return 1
+  return n*fact_num(n-1)
+n=int(input("enter"))
+res=fact_num(n)
+print(res)   
+
+# 5. Find the power of a number a^b using recursion.
+def power(b,p):
+  if p==0:
+    return 1
+  return b*power(b,p-1)
+b=int(input("enter b")) 
+p=int(input("enter p")) 
+res=power(b,p)
+print(f"the power of number is:{res}")
+
+# 6. Find the sum of digits of a number using recursion.
+def sum_digits(n):
+    if n == 0:
+        return 0
+    return (n % 10) + sum_digits(n // 10)
+num = int(input("Enter a number: "))
+result = sum_digits(num)
+print(result)
+
+# 7. Reverse a number using recursion.
+def reverse_number(n, rev=0):
+    if n == 0:
+        return rev
+    return reverse_number(n // 10, rev * 10 + n % 10)
+num = int(input("Enter a number: "))
+result = reverse_number(num)
+print(result)
+
+# 8. Check whether a number is a palindrome using recursion.
+def get_reverse(n, rev=0):
+    if n == 0:
+        return rev
+    return get_reverse(n // 10, rev * 10 + n % 10)
+def is_palindrome(n):
+    return n == get_reverse(n)
+
+num = int(input("Enter a number: "))
+if is_palindrome(num):
+    print(f"{num} is a palindrome.")
+else:
+    print(f"{num} is not a palindrome.")
+
+# 9. Find the nth Fibonacci number using recursion.
+def fibonacci(n):
+    if n <= 1:
+        return n
+    return fibonacci(n - 1) + fibonacci(n - 2)
+
+n = int(input("Enter the value of n: "))
+print(f"The {n}th Fibonacci number is: {fibonacci(n)}")
+
+
+# 10. Print Fibonacci series up to n terms using recursion.
+def fibonacci(n):
+    if n <= 1:
+        return n
+    return fibonacci(n - 1) + fibonacci(n - 2)
+terms = int(input("Enter the number of terms: "))
+
+for i in range(terms):
+    print(fibonacci(i), end=" ")
+
+# 11. Count the number of digits in a number using recursion.
+def count_digits(n):
+    if n < 10:
+        return 1
+    return 1 + count_digits(n // 10)
+n = int(input("Enter the value of n: "))
+print(count_digits(n))  
+  
+# 12. Find the product of digits of a number using recursion.
+def product_digits(n):
+    if n < 10:
+        return n
+    return (n % 10) * product_digits(n // 10)
+n = int(input("Enter the value of n: "))
+print(product_digits(n))    
+
+# 13. Check whether a string is a palindrome using recursion.
+def is_palindrome(s):
+    if len(s) <= 1:
+        return True
+    if s[0] != s[-1]:
+        return False
+    return is_palindrome(s[1:-1])
+text = input("Enter a string: ")
+if is_palindrome(text):
+    print("It is a palindrome")
+else:
+    print("It is not a palindrome")
+# 14. Find the length of a string using recursion.
+def string_length(s):
+    if s == "":
+        return 0
+    return 1 + string_length(s[1:])
+text = input("Enter a string: ")
+result = string_length(text)
+print(result)
+# 15. Reverse a string using recursion.
+def reverse_string(s):
+    if len(s) == 0:
+        return s
+    return s[-1] + reverse_string(s[:-1])
+text = input("Enter a string: ")
+result = reverse_string(text)
+print(result)
+# 16. Find the sum of all elements in a list using recursion.
+def sum_list(lst):
+    if not lst:
+        return 0
+    return lst[0] + sum_list(lst[1:])
+numbers = [1, 2, 3, 4, 5]
+print(sum_list(numbers))
+# 17. Find the maximum element in a list using recursion.
+def find_max(lst):
+    if len(lst) == 1:
+        return lst[0]
+    return max(lst[0], find_max(lst[1:]))
+numbers = [10, 5, 20, 8]
+print(find_max(numbers))
+
+# 18. Find the minimum element in a list using recursion.
+def find_min(lst):
+    if len(lst) == 1:
+        return lst[0]
+    return min(lst[0], find_min(lst[1:]))
+numbers = [10, 5, 20, 8]
+print(find_min(numbers))
+
+# 19. Check whether a number is even or odd using recursion.
+def is_even(n):
+    n = n
+    if n == 0:
+        return True
+    if n == 1:
+        return False
+    return is_even(n - 2)
+num = int(input("Enter a number: "))
+if is_even(num):
+    print("Even")
+else:
+    print("Odd")
+# 20. Calculate GCD of two numbers using recursion.
+def gcd(a, b):
+    if b == 0:
+        return a
+    return gcd(b, a % b)
+
+num1 = int(input("Enter a: "))
+num2 = int(input("Enter b: "))
+print(gcd(num1, num2))
+
+# '''
+# #Section 1: Python Basics & Environment
+# #21. Why is Python called a high-level language? 
+# It is designed to be easy for humans to read and write, hiding complex details
+#  like memory management and CPU instructions.
+
+# 22. What are the key features of Python? 
+# Easy syntax, interpreted, dynamically typed, platform-independent, and supports 
+# multiple paradigms (OOP, Functional).
+
+# 23. Is Python case-sensitive? 
+# Yes. Variable and variable are treated as two different things.
+
+# 24. What is the difference between Python 2 and Python 3? 
+# Python 3 is the current standard. Notable changes include print becoming a
+#  function print() and better Unicode support.
+
+# 25. What is an interpreter?
+#  A program that executes code line-by-line rather than compiling the entire 
+#  program into machine code first.
+
+# 26. How does Python execute code? 
+# Source code is compiled into Bytecode (.pyc files), which is then run by the 
+# Python Virtual Machine (PVM).
+
+# 27. What is dynamic typing? 
+# You don’t need to declare the type of a variable (like int or str)
+#  when you create it; Python figures it out at runtime.
+
+# 28. What is strong typing in Python? 
+# Python won't allow "mixing" types in ways that don't make sense,
+#  like adding a string to an integer without conversion.
+
+# Section 2: Variables & Memory
+# 29. What is a variable?
+#  A reserved memory location to store values. Think of it as a labeled container.
+
+# 30. How are variables created in Python?
+#  Variables are created the moment you first assign a value to them using the =
+#   operator.
+
+# 31. What are naming rules for variables?
+#  Must start with a letter or underscore, cannot start with a number, 
+#  and can only contain alphanumeric characters and underscores.
+
+# 32. What are keywords in Python? 
+# Reserved words that have special internal meanings (e.g., if, while, True) and 
+# cannot be used as variable names.
+
+# 33. How can you see all Python keywords?
+#  By running import keyword; print(keyword.kwlist).
+
+# 34. What is memory management in Python? 
+# Python uses a private heap space to manage memory. It is handled automatically 
+# by the Python manager.
+
+# 35. What is garbage collection? 
+# An automatic process that frees up memory by deleting objects that are no longer being used by the program.
+
+# Section 3: Syntax & Data Types
+# 36. What is indentation in Python? 
+# The leading spaces (usually 4) at the beginning of a code line.
+
+# 37. Why is indentation important? 
+# It is used to indicate a block of code. In other languages, curly braces {} 
+# are used; in Python, indentation is mandatory.
+
+# 38. What is a comment?
+#  Text ignored by the interpreter, used to explain code logic.
+
+# 39. Difference between single-line and multi-line comments.
+#  Single-line starts with #. Multi-line is typically enclosed in triple quotes
+#   (""" or ''')
+
+# 40. What is an expression? 
+# A combination of values and operators that evaluates to a single value (e.g., 5 + 2).
+
+# 41. What is a statement?
+#  A complete command that performs an action (e.g., x = 10 or print(x)).
+
+# 42. Difference between expression and statement.
+#  An expression calculates a value; a statement executes an instruction.
+
+# 43. What are literals in Python?
+#  Fixed values assigned to variables, like 10, "Hello", or 3.14.
+
+# 44. What are data types? 
+# Classifications that tell the interpreter how the programmer intends to use the
+#  data (e.g., Integers, Strings).
+
+# 45. How many built-in data types are there? Main ones include: int, float,
+#  str, list, tuple, dict, set, bool, and None.
+
+# 46. What is type() function? 
+# A built-in function used to check the data type of any object or variable.
+
+# 47. What is type casting? 
+# The process of converting one data type into another (e.g., converting a string "5" to an integer 5).
+
+# 48. Difference between implicit and explicit type casting.
+#  Implicit is done automatically by Python; Explicit (Mapping) is done manually
+#   by the programmer using functions like int().
+
+# 49. What is input() function?
+#  A function that pauses the program to let the user type something on the keyboard.
+
+# 50. What does input() return by default?
+#  It always returns a string (str), even if the user types a number.
+
+# 51. Difference between print() and input(). 
+# print() displays data on the screen; input() reads data from the user.
+
+# Section 4: Operators
+# 52. What are operators? 
+# Special symbols used to perform operations on variables and values.
+
+# 53. Types of operators in Python. 
+# Arithmetic, Comparison (Relational), Logical, Assignment, Bitwise, Identity, 
+# and Membership.
+
+# 54. Difference between = and ==.
+#  = is for assignment; == is for comparing if two values are equal.
+
+# 55. Difference between is and ==.
+#  == checks if the values are equal; is checks if they refer to the 
+#  same memory location.
+
+# 56. What are relational operators? 
+# Used to compare two values (>, <, ==, !=, >=, <=).
+
+# 57. What are logical operators? 
+# Used to combine conditional statements (and, or, not).
+
+# 58. What is short-circuiting in logical operators? 
+# When the result is determined by the first part of the expression,
+#  Python skips evaluating the rest (e.g., False and ... is always False).
+
+# 59. What are bitwise operators? O
+# perators that perform actions on binary representations of numbers 
+# (e.g., &, |, ^, ~, <<, >>).
+
+# Section 5: Conditionals & Loops
+# 60. What is a conditional statement? 
+# Code that runs only if a specific condition is met.
+
+# 61. What is if statement?
+#  The basic decision-making statement that executes code only if its condition is True.
+
+# 62. What is elif? Short for "else if"; 
+# it checks another condition if the previous if failed.
+
+# 63. What is else? 
+# The block that runs if none of the preceding conditions (if or elif) are True.
+
+# 64. Can if exist without else? 
+# Yes. The else part is optional.
+
+# 65. What is nested if?
+#  An if statement written inside another if statement.
+
+# 66. What is a loop? 
+# A block of code that repeats until a condition is met or a sequence is finished.
+
+# 67. Why are loops used?
+#  To automate repetitive tasks and iterate over data collections.
+
+# 68. What is a for loop?
+#  Used for iterating over a sequence (list, tuple, string, or range).
+
+# 69. What is a while loop? 
+# Repeats as long as a certain boolean condition remains True.
+
+# 70. Difference between for and while loop.
+#  for is usually used when the number of iterations is known; 
+#  while is used when the number of iterations depends on a condition.
+
+# 71. What is infinite loop? 
+# A loop that never ends because its condition never becomes False.
+
+# 72. What is break statement?
+#  Used to exit the current loop immediately.
+
+# 73. What is continue statement? 
+# Skips the rest of the current loop iteration and moves to the next one.
+
+# 74. What is pass statement? 
+# A placeholder that does nothing; used to avoid errors in empty code blocks.
+
+# 75. What is range() function?
+#  Generates a sequence of numbers (e.g., 0 to 9).
+
+# 76. What does range(1, 10, 2)
+#  produce? Odd numbers from 1 to 9: 1, 3, 5, 7, 9.
+
+# 77. Can range() be used in while loop?
+#  Not directly as the loop control, but you can iterate through it or use it 
+#  as a counter.
+
+# 78. What is loop else? 
+# An optional block that runs after a loop completes all its iterations.
+
+# 79. When does loop else execute? Only if the loop finished naturally (i.e., it was not stopped by a break).
+
+# Section 6: Functions & Scope
+# 80. What is a function? A reusable block of code that only runs when it is called.
+
+# 81. Why do we use functions? To reduce code duplication and make programs
+#  more organized and modular.
+
+# 82. How do you define a function? 
+# Using the def keyword followed by the
+#  function name and parentheses ().
+
+# 83. What is the syntax of a function? 
+# def function_name(parameters): # code block.
+
+# 84. What is function calling? 
+# Invoking a function to execute its code by typing function_name().
+
+# 85. Difference between defining and calling a function.
+#  Defining creates the instructions; calling carries them out.
+
+# 86. What are parameters? 
+# The variables listed inside the parentheses in the function definition.
+
+# 87. What are arguments?
+#  The actual values passed into the function when you call it.
+
+# 88. Difference between parameters and arguments. 
+# Parameters are the "headers" or variables; arguments are the "values" sent to them.
+
+# 89. What is a return statement?
+#  Exits a function and sends a value back to the caller.
+
+# 90. Can a function return multiple values? 
+# Yes, Python can return multiple values separated by commas (returned as a tuple).
+
+# 91. What happens if a function has no return?
+#  It returns None by default.
+
+# 92. What is default parameter? 
+# A parameter that takes a pre-set value if no argument is provided during the call.
+
+# 93. How do default arguments work? def func(a=10):. 
+# If func() is called, a is 10. If func(5) is called, a is 5.
+
+# 94. What are positional arguments? 
+# Arguments that must be passed in the correct chronological order.
+
+# 95. What are keyword arguments? A
+# rguments passed by explicitly naming the parameter (name="Alice"), 
+# allowing you to ignore the order.
+
+# *96. What is args? A special syntax that allows a function to accept
+#  any number of positional arguments as a tuple.
+
+# *97. Why is args used?
+#  When you don't know in advance how many arguments will be passed to your function.
+
+# **98. What is kwargs? 
+# A special syntax that allows a function to accept any number of keyword 
+# arguments as a dictionary.
+
+# **99. Why is kwargs used? 
+# To handle named arguments that weren't defined in the parameter list.
+
+# **100. Can we use both *args and kwargs together?
+#  Yes, but they must follow a specific order: positional, then *args, then **kwargs.
+
+# 101. What is variable scope? 
+# The part of the program where a variable is accessible.
+
+# 102. What is local scope? 
+# Variables defined inside a function; they only exist while the function is running.
+
+# 103. What is global scope? 
+# Variables defined outside all functions; they can be accessed anywhere in the file.
+
+# 104. Difference between local and global variables. 
+# Local is private to a function; Global is public to the whole script.
+
+# 105. What is the global keyword? 
+# Used inside a function to declare that a variable belongs to the global scope.
+
+# 106. Why do we need global keyword?
+#  To modify or change the value of a global variable from inside a function.
+
+# 107. Can a function access a global variable? 
+# Yes, it can read its value without any extra keywords.
+
+# 108. Can a function modify a global variable? Not directly;
+#  it requires the global keyword to change the value.
+
+# 109. What is nested function?
+#  A function defined inside another function.
+
+# 110. Can we define a function inside another function? Y
+# es, this is used in advanced patterns like closures and decorators.
+
+# 111. What is function recursion? 
+# When a function calls itself to solve smaller versions of the same problem.
+
+# 112. What is base condition in recursion?
+#  The condition that stops the recursion from calling itself forever.
+
+# 113. What happens if base condition is missing? 
+# The function creates an infinite loop of calls, eventually crashing the program.
+
+# 114. What is stack overflow? 
+# An error that occurs when the recursion depth is too high 
+# and the computer runs out of stack memory.
+
+# 115. What is lambda function? 
+# A small, anonymous, one-line function defined without a name using the lambda keyword.
+
+# 116. Difference between lambda and normal function.
+#  Lambda has no name, is written in one line, and can only contain one expression.
+
+# 117. Can a function be assigned to a variable? 
+# Yes, in Python, functions are "first-class objects."
+
+# 118. What is a first-class function? 
+# A language feature where functions can be treated like any other 
+# variable (passed as arguments, returned, assigned).
+
+# 119. What is a higher-order function?
+#  A function that either takes another function as an argument 
+#  or returns a function as its result.
+#  '''
