@@ -1,0 +1,263 @@
+# 1. program that takes two numbers from the user and handles division by zero.
+
+try:
+    a = int(input("Enter 1st num: "))
+    b = int(input("Enter 2nd num: "))
+    print(f"Result: {a / b}")
+except ZeroDivisionError as z: 
+    print(f"Error is: {z}. You cannot divide by zero.") 
+except ValueError:
+    print("Error: Please enter digits only (no letters or symbols).")
+
+# 2. program to convert a string into an integer and handle invalid input using
+# exception handling.
+try:
+  a=input("enter number")
+  b=int(a)
+  print(b)
+except ValueError as v:
+  print(f"invalid input {v},enter digits only")
+
+# 3. Write a program to access an index from a list and handle IndexError.
+li = [1, 2, 3, 4]
+try:
+    idx = int(input("Enter index: "))
+    print(li[idx])
+except IndexError as e:
+    print(f"Error: {e}")
+
+  
+# 4.  program to open a file and handle the case when the file does not exist.
+try:
+    with open("myfile.txt", "r") as f:
+        content = f.read()
+        print(content)
+except FileNotFoundError:
+    print("Error: That file doesn't exist. Check the filename and try again.")
+
+# 5. program that asks the user for a number and prints its square, handling
+# non-numeric input.
+try:
+  n=int(input("enter"))
+  print(n*n)
+except ValueError:
+    print("Error: Please enter digits only.") 
+
+# 6. Write a program to divide two numbers and use try-except-else.
+try:
+    a = float(input("Enter num: "))
+    b = float(input("Enter denom: "))
+    result = a/b
+except ZeroDivisionError:
+    print("Error: cannot divide by zero.")
+except ValueError:
+    print("Error: Please enter valid numbers.")
+else:
+    print(f"The result is {result}")
+
+# 7. Write a program to read a file and handle both FileNotFoundError and
+# PermissionError.
+try:
+    filename = input("Enter the filename to read: ")
+    with open(filename, "r") as file:
+        print(file.read())
+except FileNotFoundError:
+    print(f"Error: '{filename}' does not exist.")
+except PermissionError:
+    print(f"Error: You do not have  permissions to read '{filename}'.")
+
+
+# 8. program that takes a list and an index from the user and safely prints value.
+li = [1, 2, 3, 4, 5]
+try:
+    ind = int(input("Enter index: "))
+    print(li[ind])
+except IndexError:
+    print("Error: Index out of range.")
+except ValueError:
+    print("Error: Please enter a valid integer.")
+
+# 9. Write a program to perform integer division and handle ZeroDivisionError.
+try:
+    a = int(input("Enter the numerator: "))
+    b = int(input("Enter the denominator: "))
+    result = a // b
+    print(f"The result of integer division is: {result}")
+except ZeroDivisionError:
+    print("Error: Division by zero is not allowed.")
+
+# 10. Write a program to convert user input into float and handle wrong input.
+try:
+  i=int(input("enter interger"))
+  f=float(i)
+  print(f)
+except ValueError:
+    print(f"Error: '{i}' is not a valid number.")
+ 
+# 11. Write a program that accesses a dictionary key and handles KeyError.
+student_scores = {"Alice": 90, "Bob": 85, "Charlie": 92}
+try:
+    name = input("Enter student name: ")
+    print(f"{name}'s score is: {student_scores[name]}")
+except KeyError:
+    print(f"Error: The name '{name}' was not found in our records.")
+
+
+# 12. program to add two numbers entered by the user and handle invalid input.
+try:
+  a=int(input("enter"))
+  b=int(input("enter"))
+  res=a+b
+  print(res)
+except ValueError:
+  print("invalid input enter correct value")  
+
+# 13. program that opens a file, writes data, and ensures it closes using finally.
+file_name = input("Enter file name (e.g., test.txt): ")
+f = None 
+try:
+    f = open(file_name, 'w')
+    f.write("Hello, this is a test.")
+    print("Data written successfully.")
+except Exception as e:
+    print(f"An error occurred: {e}")
+finally:
+    if f:
+        f.close()
+        print("File closed safely.")
+
+# 14. program to take multiple numbers from the user and handle any invalid entry.
+raw_input = input("Enter numbers separated by spaces: ")
+items = raw_input.split()
+valid_numbers = []
+
+# 3. Process the list
+for item in items:
+    try:
+        valid_numbers.append(float(item))
+    except ValueError:
+        print(f"Error: '{item}' is not a number and will be skipped.")
+
+print(f"Final List: {valid_numbers}")
+
+# 15. Write a program to perform multiple operations inside try and catch different
+# exceptions.
+try:
+  a=int(input("enter a num"))
+  b=int(input("enter a num"))
+  sum=a+b
+  diff=a-b
+  div = a / b  
+    
+  print(f"Sum: {sum}")
+  print(f"Difference: {diff}")
+  print(f"Division: {div}")
+except ValueError:
+    print("Error: Invalid. Please enter whole numbers only.")
+
+except ZeroDivisionError:
+    print("Error: Cannot divide by zero.")
+
+except Exception as e:
+    print(f"An unexpected error occurred: {e}") 
+
+
+# 16.program that reads numbers from a file and handles file-related errors.
+
+# 17.program that asks for age and ensures it is a valid integer using exception
+# handling.
+try:
+    user_input = input("Please enter your age: ")
+    age = int(user_input)
+    if 0 <= age <= 100:
+        print(f"Age is : {age}")
+    else:
+        print("Error: Age must be between 0 and 100.")
+except ValueError:
+    print(f"Error: '{user_input}' is not a valid whole number.")
+
+# 18. Write a program to pop an element from a list and handle empty list error.
+li = [1,2,3,4,5] 
+try:
+    item = li.pop()
+    print(f"Popped item: {item}")
+    print(f"Updated list: {li}")
+except IndexError:
+    print("Error: The list is empty. You cannot pop an element!")
+
+
+# 19. Write a program that converts a string to an integer and prints its 
+#reciprocal, handling all possible errors.
+user_input = input("Enter a number to find its reciprocal: ")
+try:
+    number = int(user_input)
+    reciprocal = 1 / number
+    print(f"The reciprocal of {number} is {reciprocal}")
+except ValueError:
+    print(f"Error: '{user_input}' is not a valid integer. Please enter digits.")
+except ZeroDivisionError:
+    print("Error:cannot divide by zero")
+
+
+# 20. Write a program to divide elements of two lists index-wise and handle 
+#length mismatch errors.
+
+
+
+
+
+# 21. Write a that takes a filename from the user and displays content safely.
+filename = input("Enter the name of the file to read: ")
+try:
+    with open(filename, 'r') as file:
+        content = file.read()
+        print(content)
+except FileNotFoundError:
+    print(f"Error: The file '{filename}' does not exist.")
+
+# 22. program that asks the user for two values performs subtraction with proper
+# error handling.
+try:
+    val1 = int(input("Enter the first number: "))
+    val2 = int(input("Enter the number to subtract: "))
+    result = val1 - val2
+    print(f"\nResult:{result}")
+except ValueError:
+    print("\nError: One of your inputs wasn't a valid number")
+
+
+# 23.program that accesses a nested list element and handles invalid index errors.
+matrix = [  [10, 20, 30], [40, 50, 60],[70, 80, 90]]
+try:
+    row = int(input("Enter row index (0-2): "))
+    col = int(input("Enter column index (0-2): "))
+    element = matrix[row][col]
+    print(f"The element at [{row}][{col}] is: {element}")
+except IndexError:
+    print("Error: That index is out of range! Please stay between 0 and 2.")
+
+
+# 24. to calculate the average of numbers entered by the user and handle
+# invalid input.
+try:
+    a = int(input("Enter first number: "))
+    b = int(input("Enter second number: "))
+    avg = (a + b) / 2
+    
+    print(f"The average is: {avg}")
+
+except ValueError:
+    print("Error: Please enter valid whole numbers.")
+
+# 25.program that reads a file line by line and handles file opening errors.
+file_name = input("Enter the filename: ")
+try:
+    with open(file_name, 'r') as file:
+        for line in file:
+            print(line, end='')
+except FileNotFoundError:
+    print("Error: File not found.")
+
+
+
+
