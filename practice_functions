@@ -52,13 +52,16 @@ numberss=[1,2,3,4,5,6]
 print(sum_all(numberss))
 
 # 8. Write a function to count the number of digits in a number.
-def count_all(li):
-  count=0
-  for i in li:
-    count+=1
-  return count 
-numberss=[1,2,3,4,5,6]  
-print(count_all(numberss))
+def count_digits(n):
+    count = 0
+    n = abs(n)
+    if n == 0: return 1
+    
+    while n > 0:
+        n //= 10  # This removes the last digit
+        count += 1
+    return count
+print(count_digits(12345))
 
 # 9. Write a function to reverse a number.
 def reverse_number(n):
