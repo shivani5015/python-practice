@@ -1,0 +1,33 @@
+#Object-Oriented Programming (OOP) is a paradigm based on the concept of
+ #"objects", which can contain data (attributes) and code (methods). 
+ #Think of it as a way to map real-world entities into your code.
+
+#Q1
+class employee:
+  company='genpact'
+  def __init__(self,name,location,department,salary):
+    self.emp_name=name
+    self.emp_location=location
+    self.emp_dept=department
+    self.emp_salary=salary
+  def display(self):
+    print(f"emp name is {self.emp_name}")  
+    print(f"emp location is {self.emp_location}")
+    print(f"emp department is{self.emp_dept}")
+    print(f"emp salary is {self.emp_salary}")
+    print(f"company is {self.company}")
+e1=employee('amit','jaipur','sales',20000)  
+e1.display()
+
+#Q2
+class book:
+  def __init__(self,title,writer,published_on):
+    self.title_name=title
+    self.writer_book=writer
+    self.published_book=published_on
+  def display(self):
+    print(f"tile of book is{self.title_name}")  
+    print(f"writer of book is{self.writer_book}")
+    print(f"published book on {self.published_book}")
+b1=book('free to lead','anonymous',1980)
+b1.display()
