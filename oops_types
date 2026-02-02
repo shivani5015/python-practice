@@ -1,0 +1,34 @@
+# Single Inheritance	A child class inherits from only one parent class. 
+# This is the simplest form.
+
+# Multiple Inheritance	A child class inherits from more than one parent class. 
+#  (Supported in Python, but not in Java).
+
+# Multilevel Inheritance	A child class inherits from a parent, which in turn 
+# inherits from another parent (forming a chain like 
+#Grandparent -> Parent -> Child).
+
+
+# Hierarchical Inheritance Multiple child classes inherit from a single parent class.
+# Hybrid Inheritance	A combination of two or more of the types mentioned above.
+
+#Q1
+#create a class teacher with constructer that store name and subject
+#create a class classteacher that inherits teacher and add section 
+#use super() to initialize name and subject 
+#print all the values using the display method
+
+class teacher:
+  def __init__(self,name,subject):
+    self.teacher_name=name
+    self.teacher_sub=subject
+class classteacher(teacher):
+  def __init__(self,name,subject,section):
+    super().__init__(name,subject) 
+    self.section=section
+  def display(self):
+    print(f"name of teacher is:{self.teacher_name}")  
+    print(f"subject of techer is :{self.teacher_sub}")
+    print(f"section is {self.section}")
+s1=classteacher('ram','science','a2')  
+s1.display()  
