@@ -1,0 +1,70 @@
+#Single Inheritance: A child class inherits from one parent class.
+
+#Multiple Inheritance: A child class inherits from more than one parent class.
+
+#Multilevel Inheritance: A child class inherits from a parent, which in turn inherits from another parent (a "grandparent" structure).
+
+#Hierarchical Inheritance: Multiple child classes inherit from a single parent class.
+
+#Hybrid Inheritance: A combination of two or more of the above types.
+# 1. SINGLE INHERITANCE
+class Animal:
+    def speak(self):
+        print("Animal makes a sound")
+
+class Dog(Animal):
+    def bark(self):
+        print("Dog barks")
+
+# 2. MULTIPLE INHERITANCE
+class Father:
+    def height(self):
+        print("Tall height inherited from Father")
+
+class Mother:
+    def eyes(self):
+        print("Blue eyes inherited from Mother")
+
+class Child(Father, Mother):
+    pass
+
+# 3. MULTILEVEL INHERITANCE
+class Grandparent:
+    def gold(self):
+        print("Legacy Gold")
+
+class Parent(Grandparent):
+    def house(self):
+        print("Family House")
+
+class GrandChild(Parent):
+    def toy(self):
+        print("New Toy")
+
+# 4. HIERARCHICAL INHERITANCE
+class Vehicle:
+    def info(self):
+        print("This is a vehicle")
+
+class Car(Vehicle):
+    pass
+
+class Bike(Vehicle):
+    pass
+
+# --- Testing the code ---
+print("--- Single ---")
+d = Dog()
+d.speak()
+d.bark()
+
+print("\n--- Multiple ---")
+c = Child()
+c.height()
+c.eyes()
+
+print("\n--- Multilevel ---")
+gc = GrandChild()
+gc.gold()
+gc.house()
+gc.toy()
